@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+   <head>
+      <meta charset="UTF-8">
+      <title>Work-Timer 【ver. 1.2】</title>
+      <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+   </head>
+
+   <body>
+      <!-- タイトル -->
+      <h1 id="title">「健康なくして生産無し」</h1>
+
+      <!-- スタートボタン -->
+      <div id="start-button">
+        <p id="start-text">クリックで業務開始</p>
+      </div>
+
+      <!-- 通知間隔設定 -->
+      <!-- <form name="select_interval">
+        <p>通知間隔を設定してください</p>
+        <select name="select2" onchange="select2Set()">
+          <option value="">1時間ごと</option>
+          <option value="">30分ごと</option>
+          <option value="">2時間ごと</option>
+        </select>
+      </form> -->
+
+      <!-- 最初の通知時間設定 -->
+      <!-- <form name="select_firsttime">
+        <p>最初の通知時間を設定してください</p>
+        <select name="select1" onchange="select1Set()">
+          <option value="">60分後</option>
+          <option value="">10分後</option>
+          <option value="">20分後</option>
+          <option value="">30分後</option>
+          <option value="">40分後</option>
+          <option value="">50分後</option>
+        </select>
+      </form> -->
+
+      <!-- 時間表示 -->
+      <div id="time-block">
+        <p id="time">-</p>
+      </div>
+
+      <!-- リセットボタン -->
+      <div id="reset-button">
+        <p id="reset">休憩します！</p>
+      </div>
+
+      <!-- 画像 -->
+            <img id="pic" src=''>
+
+      <!-- 通知許可ボタン -->
+      <div id="init-button">
+        <p id="init">まずはここをクリックして通知を許可してください</p>
+      </div>
+
+      <!-- Javascript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+      <script type="text/javascript" src="JS/script.js"></script>
+
+   </body>
+</html>
