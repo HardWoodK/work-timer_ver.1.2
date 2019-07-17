@@ -1,6 +1,6 @@
 body{
   background-color: white;
-  width: 500px;
+  width: 600px;
   text-align: center;
   padding: 0 0 10px 0;
   border: 2px solid #232323;
@@ -15,6 +15,31 @@ body{
   margin: 10px auto;
 }
 
+#init-button {
+  background-color: white;
+  display: block;
+  cursor: pointer;
+  width: 400px;
+  text-align: center;
+  border: 1px solid #232323;
+  margin: 150px auto 150px auto;
+}
+
+#init-message {
+  background-color: white;
+  display: block;
+  cursor: pointer;
+  width: 400px;
+  text-align: center;
+  margin: 30px  auto;
+  display: none;
+}
+
+.init-message-text {
+  text-align: left;
+  margin: 30px  auto;
+}
+
 #start-button {
   background-color: white;
   display: block;
@@ -23,9 +48,10 @@ body{
   text-align: center;
   border: 1px solid #232323;
   margin: 20px auto;
+  display: none;
 }
 
-#start_text{
+#start-text{
   color: black;
 }
 
@@ -35,6 +61,14 @@ body{
   text-align: center;
   font-size: 20px;
   margin: 10px auto;
+  display: none;
+}
+
+#pic {
+  background-color: white;
+  border: 1px solid #232323;
+  margin: 10px auto;
+  display: none;
 }
 
 #reset-button {
@@ -45,20 +79,33 @@ body{
   text-align: center;
   border: 1px solid #232323;
   margin: 10px auto;
+  display: none;
 }
 
-#pic {
-  background-color: white;
-  border: 1px solid #232323;
-  margin: 10px auto;
-}
-
-#init-button {
+#break {
   background-color: white;
   display: block;
   cursor: pointer;
   width: 400px;
   text-align: center;
+  margin: 30px  auto;
+  display: none;
+}
+
+#break-pic {
+  background-color: white;
+  text-align: center;
+  margin: 30px  auto;
+  display: none;
+}
+
+#restart-button {
+  background-color: white;
+  display: block;
+  cursor: pointer;
+  width: 160px;
+  text-align: center;
   border: 1px solid #232323;
-  margin: 10px auto 0 auto;
+  margin: 10px auto;
+  display: none;
 }

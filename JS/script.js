@@ -10,28 +10,57 @@ const imgList = new Array(
   './picture/fitness5.PNG',
   './picture/fitness6.PNG'
 );
-// let output = './picture/bad.png';
-// let output = <img src = imgList[selectnum]>;
+
+const imgList2 = new Array(
+  './picture/0分.gif',
+  './picture/15分.gif',
+  './picture/30分.gif',
+  './picture/45分.gif',
+  './picture/60分.gif',
+  './picture/75分.gif'
+);
+
+/* 通知許可ボタンクリック時動作 */
+document.getElementById("init-button").onclick = function(){
+  Push.create("通知が許可されました");
+  document.getElementById("init-button").style.display  ="none";
+  document.getElementById("init-message").style.display ="block";
+  document.getElementById("start-button").style.display ="block";
+}
 
 /* スタートボタンクリック時動作 */
 document.getElementById("start-button").onclick = function(){
-  start = 1;    //スタートフラグON
-  //スタートボタンテキスト変更
-  document.getElementById("start-text").innerHTML = "仕事なう";
+  start = 1;
+  document.getElementById("init-message").style.display ="none";
+  document.getElementById("start-button").style.display ="none";
+  document.getElementById("time-block").style.display   ="block";
+  document.getElementById("pic").style.display          ="block";
+  document.getElementById("reset-button").style.display ="block";
+}
+
+/* リスタートボタンクリック時動作 */
+document.getElementById("restart-button").onclick = function(){
+  start = 1;
+  document.getElementById("init-message").style.display   ="none";
+  document.getElementById("start-button").style.display   ="none";
+  document.getElementById("restart-button").style.display ="none";
+  document.getElementById("break").style.display          ="none";
+  document.getElementById("break-pic").style.display      ="none";
+  document.getElementById("time-block").style.display     ="block";
+  document.getElementById("pic").style.display            ="block";
+  document.getElementById("reset-button").style.display   ="block";
 }
 
 /* リセットボタンクリック時動作 */
 document.getElementById("reset-button").onclick = function(){
   start = 0, second = 0, minute = 0, hour = 0;  //スタートフラグ、時間変数初期化
   //スタートボタンテキスト変更
-  document.getElementById("start-text").innerHTML = "クリックで業務開始";
-  //時間テキスト変更
-  document.getElementById("time").innerHTML       = "-";
-}
-
-/* 通知許可ボタンクリック時動作 */
-document.getElementById("init-button").onclick = function(){
-  Push.create("通知が許可されました")
+  document.getElementById("break").style.display          ="block";
+  document.getElementById("break-pic").style.display      ="block";
+  document.getElementById("restart-button").style.display ="block";
+  document.getElementById("time-block").style.display     ="none";
+  document.getElementById("pic").style.display            ="none";
+  document.getElementById("reset-button").style.display   ="none";
 }
 
 /* 通知 */
@@ -48,7 +77,7 @@ function note(){
         this.close();
     }
   });
-  document.getElementById("pic").src = imgList[selectnum];
+  document.getElementById("pic").src = imgList2[0];
 }
 
 /* 時間計算 & 表示 */
