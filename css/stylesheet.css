@@ -35,6 +35,26 @@ body{
   display: none;
 }
 
+#elapse-button {
+  background-color: white;
+  display: block;
+  cursor: pointer;
+  width: 400px;
+  text-align: center;
+  border: 1px solid #232323;
+  margin: 150px auto 150px auto;
+}
+
+#elapse-message {
+  background-color: white;
+  display: block;
+  cursor: pointer;
+  width: 400px;
+  text-align: center;
+  margin: 30px  auto;
+  display: none;
+}
+
 .init-message-text {
   text-align: left;
   margin: 30px  auto;
