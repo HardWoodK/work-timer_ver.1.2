@@ -24,6 +24,13 @@ const imgList2 = new Array(
 document.getElementById("init-button").onclick = function(){
   Push.create("通知が許可されました");
   document.getElementById("init-button").style.display  ="none";
+  document.getElementById("elapse-message").style.display ="block";
+  document.getElementById("elapse-box").style.display ="block";
+  document.getElementById("elapse-button").style.display ="block";
+}
+
+/* 経過時間入力ボタンクリック時動作 */
+document.getElementById("elapse-button").onclick = function(){
   document.getElementById("init-message").style.display ="block";
   document.getElementById("start-button").style.display ="block";
 }
