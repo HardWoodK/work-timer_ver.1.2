@@ -57,7 +57,7 @@ body{
 
 #elapse-box {
   width: 200px;
-  text-align: center;
+  align: center;
   display: none;
 }
 
