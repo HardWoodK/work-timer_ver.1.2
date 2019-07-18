@@ -55,6 +55,12 @@ body{
   display: none;
 }
 
+#elapse-box {
+  width: 200px;
+  text-align: center;
+  display: none;
+}
+
 .init-message-text {
   text-align: left;
   margin: 30px  auto;
