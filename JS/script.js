@@ -90,6 +90,10 @@ function note(){
   document.getElementById("pic").src = imgList2[0];
 }
 
+/* 初期時間セット */
+function elapseSet(){
+}
+
 /* 時間計算 & 表示 */
 function time(){
   if(start === 1){
