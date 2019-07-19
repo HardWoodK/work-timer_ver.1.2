@@ -27,6 +27,7 @@ document.getElementById("init-button").onclick = function(){
   document.getElementById("elapse-message").style.display ="block";
   document.getElementById("elapse-box").style.display ="block";
   document.getElementById("elapse-button").style.display ="block";
+  document.getElementById( "zero" ).selected = true;
 }
 
 /* 経過時間入力ボタンクリック時動作 */
@@ -60,6 +61,7 @@ document.getElementById("restart-button").onclick = function(){
   document.getElementById("time-block").style.display     ="block";
   document.getElementById("pic").style.display            ="block";
   document.getElementById("reset-button").style.display   ="block";
+  document.getElementById( "zero" ).selected = true;
 }
 
 /* リセットボタンクリック時動作 */
@@ -72,6 +74,7 @@ document.getElementById("reset-button").onclick = function(){
   document.getElementById("time-block").style.display     ="none";
   document.getElementById("pic").style.display            ="none";
   document.getElementById("reset-button").style.display   ="none";
+  document.getElementById( "zero" ).selected = true;
 }
 
 /* 通知 */
