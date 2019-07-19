@@ -41,8 +41,7 @@ body{
   cursor: pointer;
   width: 400px;
   text-align: center;
-  border: 1px solid #232323;
-  margin: 150px auto 150px auto;
+  margin: 150px auto;
 }
 
 #elapse-message {
