@@ -50,6 +50,7 @@ body{
   cursor: pointer;
   width: 400px;
   text-align: center;
+  border: 1px solid #232323;
   margin: 30px  auto;
   display: none;
 }
