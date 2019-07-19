@@ -31,7 +31,7 @@ document.getElementById("init-button").onclick = function(){
 
 /* 経過時間入力ボタンクリック時動作 */
 document.getElementById("elapse-button").onclick = function(){
-  var obj = document.getElementById(elapse-box);
+
   document.getElementById("elapse-message").style.display ="none";
   document.getElementById("elapse-box").style.display ="none";
   document.getElementById("elapse-button").style.display ="none";
