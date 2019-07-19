@@ -33,7 +33,7 @@ document.getElementById("init-button").onclick = function(){
 /* 経過時間入力ボタンクリック時動作 */
 document.getElementById("elapse-button").onclick = function(){
   minute = document.getElementById("elapse-box").value;
-  document.getElementById("mintgt").textContent = 60 - minute; 
+  //document.getElementById("mintgt").textContent = 60 - minute; 
   //この計算が負の値にならないことを，プルダウンの選択肢によって保障しているので注意 
   document.getElementById("elapse-message").style.display ="none";
   document.getElementById("elapse-box").style.display ="none";
