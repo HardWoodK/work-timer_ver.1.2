@@ -103,8 +103,8 @@ function time(){
 
     // 遷移画像表示タイミング
     imgNumberZ = imgNumber;
-    // imgNumber = parseInt(minute / 5);
-    imgNumber = parseInt(second / 5);
+    imgNumber = parseInt(minute / 5);
+    // imgNumber = parseInt(second / 5);
     if(imgNumber != imgNumberZ){
       if(hour == 0){
         document.getElementById("pic").src = imgList2[imgNumber];
