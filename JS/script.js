@@ -12,8 +12,8 @@ const imgList = new Array(
 
 /* 遷移画像 */
 const imgList2 = new Array(
-  './picture/chart/10分.gif',
-  './picture/chart/10分.gif', './picture/chart/10分.gif',
+  './picture/chart/00分.jpg',
+  './picture/chart/00分.jpg', './picture/chart/10分.gif',
   './picture/chart/15分.gif', './picture/chart/20分.gif',
   './picture/chart/25分.gif', './picture/chart/30分.gif',
   './picture/chart/35分.gif', './picture/chart/40分.gif',
@@ -62,6 +62,8 @@ document.getElementById("reset-button").onclick = function(){
 /* リスタートボタンクリック時動作 */
 document.getElementById("restart-button").onclick = function(){
   start = 1;
+  document.getElementById("time").innerHTML
+    = hour + "時間 " + minute + "分 " + second + "秒";
   document.getElementById("init-message").style.display   ="none";
   document.getElementById("start-button").style.display   ="none";
   document.getElementById("restart-button").style.display ="none";
@@ -70,8 +72,6 @@ document.getElementById("restart-button").onclick = function(){
   document.getElementById("time-block").style.display     ="block";
   document.getElementById("pic").style.display            ="block";
   document.getElementById("reset-button").style.display   ="block";
-  document.getElementById("time").innerHTML
-    = hour + "時間 " + minute + "分 " + second + "秒";
 }
 
 /* 通知 */
@@ -103,8 +103,8 @@ function time(){
 
     // 遷移画像表示タイミング
     imgNumberZ = imgNumber;
-    imgNumber = parseInt(second / 5);
     // imgNumber = parseInt(minute / 5);
+    imgNumber = parseInt(second / 5);
     if(imgNumber != imgNumberZ){
       if(hour == 0){
         document.getElementById("pic").src = imgList2[imgNumber];
@@ -112,17 +112,49 @@ function time(){
     }
 
     //通知表示タイミング
-    if(second == 30){
+    if(second == 0 && minute == 30 && hour == 0){
+    // if(second == 30){
       Push.create("30分経過しました！", {
-        body: "軽く休憩をしましょう",
+        body: "1〜2分の休憩を取りましょう",
         icon: imgList3[0],   //アイコン画像のパス
         timeout: 6000, //1時間後
         onClick: function () {
-            // window.focus();
             this.close();
         }
       });
     }
+    if(second == 0 && minute == 45 && hour == 0){
+    // if(second == 45){
+      Push.create("45分経過しました！", {
+        body: "そろそろ集中力が切れてきてませんか？",
+        icon: imgList3[1],   //アイコン画像のパス
+        timeout: 6000, //1時間後
+        onClick: function () {
+            this.close();
+        }
+      });
+    }
+    if(second == 0 && minute == 0 && hour == 1){
+    // if(second == 0 && minute == 1){
+      Push.create("1時間経過しました！", {
+        body: "10〜15分の休憩を取りましょう",
+        icon: imgList3[2],   //アイコン画像のパス
+        timeout: 6000, //1時間後
+        onClick: function () {
+            this.close();
+        }
+      });
+    }else if(second == 0 && minute % 15 == 0 && hour == 1){
+      Push.create("1時間以上連続VDT作業をしています", {
+        body: "少し休憩を取ったほうが効率的に働けます",
+        icon: imgList3[3],   //アイコン画像のパス
+        timeout: 6000, //1時間後
+        onClick: function () {
+            this.close();
+        }
+      });
+    }
+
     //時間表示
     document.getElementById("time").innerHTML
     = hour + "時間 " + minute + "分 " + second + "秒";
