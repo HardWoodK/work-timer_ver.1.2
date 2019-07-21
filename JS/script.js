@@ -1,23 +1,32 @@
 /* スタートフラグ、時間変数初期化 */
 let start = 0, second = 0, minute = 0, hour = 0;
+let imgNumber = 0; let imgNumberZ = 0;
 
-/* 画像リスト取り込み */
+/* fitness画像 */
 const imgList = new Array(
-  './picture/fitness1.PNG',
-  './picture/fitness2.PNG',
-  './picture/fitness3.PNG',
-  './picture/fitness4.PNG',
-  './picture/fitness5.PNG',
-  './picture/fitness6.PNG'
+  './picture/fitness/fitness.PNG',  './picture/fitness/fitness1.PNG',
+  './picture/fitness/fitness2.PNG', './picture/fitness/fitness3.PNG',
+  './picture/fitness/fitness4.PNG', './picture/fitness/fitness5.PNG',
+  './picture/fitness/fitness6.PNG'
 );
 
+/* 遷移画像 */
 const imgList2 = new Array(
-  './picture/0分.gif',
-  './picture/15分.gif',
-  './picture/30分.gif',
-  './picture/45分.gif',
-  './picture/60分.gif',
-  './picture/75分.gif'
+  './picture/chart/10分.gif',
+  './picture/chart/10分.gif', './picture/chart/10分.gif',
+  './picture/chart/15分.gif', './picture/chart/20分.gif',
+  './picture/chart/25分.gif', './picture/chart/30分.gif',
+  './picture/chart/35分.gif', './picture/chart/40分.gif',
+  './picture/chart/45分.gif', './picture/chart/50分.gif',
+  './picture/chart/55分.gif', './picture/chart/60分.gif'
+);
+
+/* 遷移画像 */
+const imgList3 = new Array(
+  './picture/face/face_good.png',
+  './picture/face/face_normal.png',
+  './picture/face/face_bad.png',
+  './picture/face/face_sobad.png'
 );
 
 /* 通知許可ボタンクリック時動作 */
@@ -38,19 +47,6 @@ document.getElementById("start-button").onclick = function(){
   document.getElementById("reset-button").style.display ="block";
 }
 
-/* リスタートボタンクリック時動作 */
-document.getElementById("restart-button").onclick = function(){
-  start = 1;
-  document.getElementById("init-message").style.display   ="none";
-  document.getElementById("start-button").style.display   ="none";
-  document.getElementById("restart-button").style.display ="none";
-  document.getElementById("break").style.display          ="none";
-  document.getElementById("break-pic").style.display      ="none";
-  document.getElementById("time-block").style.display     ="block";
-  document.getElementById("pic").style.display            ="block";
-  document.getElementById("reset-button").style.display   ="block";
-}
-
 /* リセットボタンクリック時動作 */
 document.getElementById("reset-button").onclick = function(){
   start = 0, second = 0, minute = 0, hour = 0;  //スタートフラグ、時間変数初期化
@@ -63,28 +59,39 @@ document.getElementById("reset-button").onclick = function(){
   document.getElementById("reset-button").style.display   ="none";
 }
 
+/* リスタートボタンクリック時動作 */
+document.getElementById("restart-button").onclick = function(){
+  start = 1;
+  document.getElementById("init-message").style.display   ="none";
+  document.getElementById("start-button").style.display   ="none";
+  document.getElementById("restart-button").style.display ="none";
+  document.getElementById("break").style.display          ="none";
+  document.getElementById("break-pic").style.display      ="none";
+  document.getElementById("time-block").style.display     ="block";
+  document.getElementById("pic").style.display            ="block";
+  document.getElementById("reset-button").style.display   ="block";
+  document.getElementById("time").innerHTML
+    = hour + "時間 " + minute + "分 " + second + "秒";
+}
+
 /* 通知 */
 function note(){
-  let selectnum = Math.floor(Math.random() * imgList.length);
+  // let selectnum = Math.floor(Math.random() * imgList.length);
   Push.create("休憩しましょう！", {
     body: hour + "時間経過しました\n集中力が切れてきてませんか？\n目を休ませて軽く運動をしましょう",
     icon: imgList[selectnum],   //アイコン画像のパス
-    // requireInteraction: false,  //勝手に消えない
-    timeout: 60*60*1000, //1時間後
+    timeout: 6000, //1時間後
     onClick: function () {
-        window.focus();
-        // location.href = 'https://www.youtube.com/watch?v=sOpJC4mmSHU';
+        // window.focus();
         this.close();
     }
   });
-  document.getElementById("pic").src = imgList2[0];
 }
 
 /* 時間計算 & 表示 */
 function time(){
   if(start === 1){
     second++;
-    if(second % 10 === 0) note();
     if(second === 60){
       minute++;
       second = 0;
@@ -92,10 +99,33 @@ function time(){
     if(minute === 60){
       hour++;
       minute = 0;
-      note();
     }
+
+    // 遷移画像表示タイミング
+    imgNumberZ = imgNumber;
+    imgNumber = parseInt(second / 5);
+    // imgNumber = parseInt(minute / 5);
+    if(imgNumber != imgNumberZ){
+      if(hour == 0){
+        document.getElementById("pic").src = imgList2[imgNumber];
+      }
+    }
+
+    //通知表示タイミング
+    if(second == 30){
+      Push.create("30分経過しました！", {
+        body: "軽く休憩をしましょう",
+        icon: imgList3[0],   //アイコン画像のパス
+        timeout: 6000, //1時間後
+        onClick: function () {
+            // window.focus();
+            this.close();
+        }
+      });
+    }
+    //時間表示
     document.getElementById("time").innerHTML
-      = hour + "時間 " + minute + "分 " + second + "秒";
+    = hour + "時間 " + minute + "分 " + second + "秒";
   }
 }
 
