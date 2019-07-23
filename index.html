@@ -2,7 +2,7 @@
 <html lang="ja">
    <head>
       <meta charset="UTF-8">
-      <title>Work-Timer【ver. 1.2】</title>
+      <title>Work-Timer【ver.1.2】</title>
       <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
    </head>
 
@@ -14,7 +14,7 @@
 
       <!-- 通知許可ボタン -->
       <div id="init-button">
-        <p id="init">
+        <p>
           まずはここをクリックして通知を許可してください
         </p>
       </div>
@@ -43,9 +43,10 @@
       <!-- 開始前注意喚起 -->
       <div id="init-message">
         <p class="init-message-text">
-          VDT作業（PC作業）は60分に一度、10〜15分の休憩を取ることが望ましいとされています。
+          VDT作業（PC作業）は60分に一度、<br>10〜15分の休憩を取ることが望ましいとされています。
         </p>
-        <img src="" alt="注意画像">
+        <img src='./picture/others/shisei.png' alt="注意画像">
+        <img src='./picture/others/resttime.png' alt="注意画像">
         <p class="init-message-text">
            <span id="miintgt"></span>分後　作業を中断し、健康的・効率的に働きましょう
         </p>
@@ -66,7 +67,7 @@
       </div>
 
       <!-- 遷移画像 -->
-      <img id="pic" src='./picture/15分.gif' width="530" height="400">
+      <img id="pic" src='./picture/chart/00分.jpg' width="530" height="400">
 
       <!-- リセットボタン -->
       <div id="reset-button">
@@ -81,7 +82,7 @@
           お疲れ様です。目を休め、ストレッチしましょう。
         </p>
       </div>
-      <img id="break-pic" src='./picture/15分.gif' width="530" height="400">
+      <img id="break-pic" src='./picture/fitness/fitness.PNG' width="530" height="350">
 
       <!-- 業務再開 -->
       <div id="restart-button">
